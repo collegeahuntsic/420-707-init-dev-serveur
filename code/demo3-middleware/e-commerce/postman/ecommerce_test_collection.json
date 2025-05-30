@@ -1,0 +1,51 @@
+{
+	"info": {
+		"_postman_id": "0b86826c-a06e-455a-a2b8-4582c9d37839",
+		"name": "e-commerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4933164"
+	},
+	"item": [
+		{
+			"name": "GET /products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Ma route devrait retourner un 200 en cas de succès\", () => {\r",
+							"    pm.expect(pm.response.code).to.eql(200)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Ma route devrait avoir une bonne structure\", () => {\r",
+							"    pm.expect(pm.response.toJSON()).to.haveOwnProperty(\"status\")\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Ma route devrait avoir un temps de réponse inférieure à 200ms\", () => {\r",
+							"    pm.expect(pm.response.responseTime).to.be.lessThanOrEqual(200)\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/products",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				},
+				"description": "Récupérer la liste des produits du e-commerce.\r\nParamètres:\r\n- `pagination`: Ce paramètre permet de récupérer une partie de la liste complète des produits (par page)"
+			},
+			"response": []
+		}
+	]
+}
