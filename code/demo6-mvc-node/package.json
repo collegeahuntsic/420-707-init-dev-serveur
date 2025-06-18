@@ -1,0 +1,19 @@
+{
+  "name": "demo6-mvc-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "init-db": "node init.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "mysql2": "^3.14.1"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.8.0"
+  }
+}
