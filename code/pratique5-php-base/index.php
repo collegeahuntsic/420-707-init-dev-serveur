@@ -10,7 +10,6 @@
 
 <body>
 <?php
-session_start();
 
 // Base de données fictive
 $users = array(
