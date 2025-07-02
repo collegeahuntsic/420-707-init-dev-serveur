@@ -11,29 +11,33 @@ $BASE_PATH = '/api-mvc';
 
 $router = new Router($BASE_PATH);
 
-$router->add('GET', '/users', function () {
-    getUserController()->getUsers();
-});
-
-$router->add('GET', '/users/{id}', function ($id) {
-    getUserController()->getUser($id);
-});
-
-$router->add('POST', '/users', function () {
-    getUserController()->createUser();
-});
-
-$router->add('PUT', '/users/{id}', function ($id) {
-    getUserController()->update($id);
-});
-
-$router->add('DELETE', '/users/{id}', function ($id) {
-    getUserController()->delete($id);
-});
-
+function registerRoutes() {
+    global $router;
+    
+    $router->add('GET', '/users', function () {
+        getUserController()->getUsers();
+    });
+    
+    $router->add('GET', '/users/{id}', function ($id) {
+        getUserController()->getUser($id);
+    });
+    
+    $router->add('POST', '/users', function () {
+        getUserController()->createUser();
+    });
+    
+    $router->add('PUT', '/users/{id}', function ($id) {
+        getUserController()->update($id);
+    });
+    
+    $router->add('DELETE', '/users/{id}', function ($id) {
+        getUserController()->delete($id);
+    });
+}
 
 // Gestion des erreurs
 try {
+    registerRoutes();
     $router->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
 } catch (Exception $e) {
     sendError($e->getMessage(), 500);
