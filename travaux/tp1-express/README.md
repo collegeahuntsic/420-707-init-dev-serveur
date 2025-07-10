@@ -34,7 +34,7 @@ npm install
 
 2. Lancer le serveur:
 ```bash
-node index.js
+npm run start
 ```
 
 Le serveur sera accessible sur http://localhost:3000.
